@@ -1,0 +1,25 @@
+{
+  "name": "YtGL",
+  "version": "1.0.0",
+  "authors": [
+    "Shane Gadsby <schme16@gmail.com>"
+  ],
+  "license": "GNU GPL v3.0",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2",
+    "angular": "~1.6",
+    "bootstrap": "latest",
+    "font-awesome": "latest",
+    "font-awesome": "latest",
+    "pepjs": "latest",
+    "open-sans": "latest"
+  }
+}

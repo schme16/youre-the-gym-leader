@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html off-manifest="manifest.appcache" ng-app="2018-xxxx - burguu-matya">
+
+<head>
+
+	<!--Fixes IE falling back to IE7 mode-->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" >
+
+
+	<!--Sets the text encoding-->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+
+	<!--Tells iDevices that the site is a Web App-->
+		<meta name="apple-mobile-web-app-capable" content="yes" >
+
+
+	<!--Tells Webkit/Blink mobile that the site is a Web App-->
+		<meta name="mobile-web-app-capable" content="yes" >
+
+
+	<!--Changes the ios top-bar/status bar to solid black, removing 20px from viewport height-->
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" >
+
+
+	<!--Sets the Viewport properties-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.2, minimum-scale=1.0, user-scalable=no">
+
+
+	<!--W3C Web Manifest-->
+		<link rel="manifest" href="sys/manifest/manifest.webmanifest">
+		
+	<!--Assigns a shortcut image and favicon-->
+		<link rel="icon" href="sys/img/icons/favicon.ico" type="image/x-icon">
+		<link rel="shortcut icon"  href="sys/img/icons/favicon.ico"  type="image/x-icon">
+		<link rel="shortcut icon"  href="sys/img/icons/favicon.ico"  type="image/vnd.microsoft.icon">
+
+
+	<!--Icons-->
+		<link rel="apple-touch-icon" href="sys/img/icons/apple-touch-icon.png">
+		<link rel="icon" sizes="128x128" href="sys/img/icons/apple-touch-icon.png">
+
+
+
+	<!--Splashes-->
+        <link href="sys/img/splashes/apple-touch-startup-image-320x460.png" media="(device-width: 320px)" rel="apple-touch-startup-image">
+        <link href="sys/img/splashes/apple-touch-startup-image-640x920.png" media="(device-width: 320px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+        <link href="sys/img/splashes/apple-touch-startup-image-768x1004.png" media="(device-width: 768px) and (orientation: portrait)" rel="apple-touch-startup-image">
+        <link href="sys/img/splashes/apple-touch-startup-image-748x1024.png" media="(device-width: 768px) and (orientation: landscape)" rel="apple-touch-startup-image">
+        <link href="sys/img/splashes/apple-touch-startup-image-1536x2008.png" media="(device-width: 768px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+        <link href="sys/img/splashes/apple-touch-startup-image-1496x2048.png" media="(device-width: 768px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+
+
+	<!--Stylesheets-->
+		<link rel="stylesheet" type="text/css" href="bower_components/open-sans/css/open-sans.min.css" >
+		<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css" >
+		<link rel="stylesheet" type="text/css" href="sys/css/spinner.css" >
+		<link rel="stylesheet" type="text/css" href="sys/css/styles.css" media="all and (min-width: 600px)">
+		<link rel="stylesheet" type="text/css" href="sys/css/mobile.css" media="all and (max-width: 599px)">
+
+
+	<!--Scripts-->
+		<script src="bower_components/jquery/dist/jquery.min.js"></script>
+		<script src="bower_components/angular/angular.min.js"></script>
+		<!-- <script src="bower_components/pepjs/dist/pep.min.js"></script> -->
+		<script src="sys/js/socket.io.min.js"></script>
+
+
+
+
+	<!--The title-->
+		<title>Burguu Matya</title>
+
+
+
+	<!--For information about this job, please see: `sys/css/styles.css`-->
+
+
+</head>
+<body ng-controller="master" class="page-{{$root.page || 'main-menu'}}" ng-class="{'game-state-playing': game.numberOfPlayers == 2, 'show-rules': $root.rules}">
+	<div class="game-container">
+	<!-- This is the parallaxing background -->
+		<trees></trees>
+
+	<!-- Lets bring in all the pages -->
+		<div class="screen">			
+			<main-menu></main-menu>
+			<game-screen></game-screen>
+			<rules class="rules-main-screen"></rules>
+		</div>
+		<rules class="rules-game-screen"></rules>
+
+	</div>
+
+
+
+		<div class="preload"></div>
+		<div class="mode"></div>
+
+	<!--Initialize the app-->
+	<script src="sys/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+
+*:not(input):not(textarea) {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+html,
+body {
+    background: #fff; 
+    color: #1e1e1e;
+    font-size: 14px;
+    font-family: 'Open Sans', 'Arial', sans-serif;
+    height: 731px;
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
