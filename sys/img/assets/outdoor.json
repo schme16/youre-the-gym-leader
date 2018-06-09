@@ -1,0 +1,1196 @@
+{"frames": {
+
+"outdoor-tiles_0.png":
+{
+	"frame": {"x":1,"y":1,"w":256,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":128},
+	"sourceSize": {"w":256,"h":128}
+},
+"outdoor-tiles_1.png":
+{
+	"frame": {"x":1,"y":131,"w":256,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":128},
+	"sourceSize": {"w":256,"h":128}
+},
+"outdoor-tiles_2.png":
+{
+	"frame": {"x":1,"y":521,"w":256,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":128},
+	"sourceSize": {"w":256,"h":128}
+},
+"outdoor-tiles_3.png":
+{
+	"frame": {"x":1,"y":911,"w":256,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":128},
+	"sourceSize": {"w":256,"h":128}
+},
+"outdoor-tiles_4.png":
+{
+	"frame": {"x":998,"y":521,"w":225,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":225,"h":128},
+	"sourceSize": {"w":225,"h":128}
+},
+"outdoor-tiles_5.png":
+{
+	"frame": {"x":771,"y":131,"w":253,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":253,"h":128},
+	"sourceSize": {"w":253,"h":128}
+},
+"outdoor-tiles_6.png":
+{
+	"frame": {"x":1,"y":1301,"w":256,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":128},
+	"sourceSize": {"w":256,"h":128}
+},
+"outdoor-tiles_7.png":
+{
+	"frame": {"x":1,"y":1431,"w":256,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":128},
+	"sourceSize": {"w":256,"h":128}
+},
+"outdoor-tiles_8.png":
+{
+	"frame": {"x":1,"y":1561,"w":256,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":128},
+	"sourceSize": {"w":256,"h":128}
+},
+"outdoor-tiles_9.png":
+{
+	"frame": {"x":516,"y":1,"w":254,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":254,"h":128},
+	"sourceSize": {"w":254,"h":128}
+},
+"outdoor-tiles_10.png":
+{
+	"frame": {"x":516,"y":261,"w":246,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":246,"h":128},
+	"sourceSize": {"w":246,"h":128}
+},
+"outdoor-tiles_11.png":
+{
+	"frame": {"x":1447,"y":521,"w":218,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":218,"h":128},
+	"sourceSize": {"w":218,"h":128}
+},
+"outdoor-tiles_12.png":
+{
+	"frame": {"x":764,"y":261,"w":246,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":246,"h":128},
+	"sourceSize": {"w":246,"h":128}
+},
+"outdoor-tiles_13.png":
+{
+	"frame": {"x":1479,"y":131,"w":218,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":218,"h":128},
+	"sourceSize": {"w":218,"h":128}
+},
+"outdoor-tiles_14.png":
+{
+	"frame": {"x":259,"y":391,"w":246,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":246,"h":128},
+	"sourceSize": {"w":246,"h":128}
+},
+"outdoor-tiles_15.png":
+{
+	"frame": {"x":1683,"y":261,"w":210,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":210,"h":128},
+	"sourceSize": {"w":210,"h":128}
+},
+"outdoor-tiles_16.png":
+{
+	"frame": {"x":515,"y":521,"w":246,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":246,"h":128},
+	"sourceSize": {"w":246,"h":128}
+},
+"outdoor-tiles_17.png":
+{
+	"frame": {"x":1667,"y":521,"w":210,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":210,"h":128},
+	"sourceSize": {"w":210,"h":128}
+},
+"outdoor-tiles_18.png":
+{
+	"frame": {"x":259,"y":521,"w":246,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":246,"h":128},
+	"sourceSize": {"w":246,"h":128}
+},
+"outdoor-tiles_19.png":
+{
+	"frame": {"x":1234,"y":391,"w":220,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":220,"h":128},
+	"sourceSize": {"w":220,"h":128}
+},
+"outdoor-tiles_20.png":
+{
+	"frame": {"x":1,"y":1806,"w":255,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":255,"h":128},
+	"sourceSize": {"w":255,"h":128}
+},
+"outdoor-tiles_21.png":
+{
+	"frame": {"x":1012,"y":261,"w":225,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":225,"h":128},
+	"sourceSize": {"w":225,"h":128}
+},
+"outdoor-tiles_22.png":
+{
+	"frame": {"x":258,"y":1806,"w":255,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":255,"h":128},
+	"sourceSize": {"w":255,"h":128}
+},
+"outdoor-tiles_23.png":
+{
+	"frame": {"x":1007,"y":391,"w":225,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":225,"h":128},
+	"sourceSize": {"w":225,"h":128}
+},
+"outdoor-tiles_24.png":
+{
+	"frame": {"x":259,"y":1,"w":255,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":255,"h":128},
+	"sourceSize": {"w":255,"h":128}
+},
+"outdoor-tiles_25.png":
+{
+	"frame": {"x":1023,"y":1,"w":249,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":249,"h":128},
+	"sourceSize": {"w":249,"h":128}
+},
+"outdoor-tiles_26.png":
+{
+	"frame": {"x":1,"y":651,"w":256,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":128},
+	"sourceSize": {"w":256,"h":128}
+},
+"outdoor-tiles_27.png":
+{
+	"frame": {"x":516,"y":131,"w":253,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":253,"h":128},
+	"sourceSize": {"w":253,"h":128}
+},
+"outdoor-tiles_28.png":
+{
+	"frame": {"x":761,"y":651,"w":234,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":234,"h":128},
+	"sourceSize": {"w":234,"h":128}
+},
+"outdoor-tiles_29.png":
+{
+	"frame": {"x":1,"y":781,"w":256,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":128},
+	"sourceSize": {"w":256,"h":128}
+},
+"outdoor-tiles_30.png":
+{
+	"frame": {"x":1,"y":1041,"w":256,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":128},
+	"sourceSize": {"w":256,"h":128}
+},
+"outdoor-tiles_31.png":
+{
+	"frame": {"x":259,"y":651,"w":239,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":239,"h":128},
+	"sourceSize": {"w":239,"h":128}
+},
+"outdoor-tiles_32.png":
+{
+	"frame": {"x":259,"y":131,"w":255,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":255,"h":128},
+	"sourceSize": {"w":255,"h":128}
+},
+"outdoor-tiles_33.png":
+{
+	"frame": {"x":259,"y":261,"w":255,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":255,"h":128},
+	"sourceSize": {"w":255,"h":128}
+},
+"outdoor-tiles_34.png":
+{
+	"frame": {"x":515,"y":651,"w":244,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":244,"h":128},
+	"sourceSize": {"w":244,"h":128}
+},
+"outdoor-tiles_35.png":
+{
+	"frame": {"x":515,"y":391,"w":255,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":255,"h":128},
+	"sourceSize": {"w":255,"h":128}
+},
+"outdoor-tiles_36.png":
+{
+	"frame": {"x":1,"y":1171,"w":256,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":128},
+	"sourceSize": {"w":256,"h":128}
+},
+"outdoor-tiles_37.png":
+{
+	"frame": {"x":1451,"y":651,"w":212,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":212,"h":128},
+	"sourceSize": {"w":212,"h":128}
+},
+"outdoor-tiles_38.png":
+{
+	"frame": {"x":1665,"y":651,"w":212,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":212,"h":128},
+	"sourceSize": {"w":212,"h":128}
+},
+"outdoor-tiles_39.png":
+{
+	"frame": {"x":1674,"y":391,"w":212,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":212,"h":128},
+	"sourceSize": {"w":212,"h":128}
+},
+"outdoor-tiles_40.png":
+{
+	"frame": {"x":1224,"y":651,"w":225,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":225,"h":128},
+	"sourceSize": {"w":225,"h":128}
+},
+"outdoor-tiles_41.png":
+{
+	"frame": {"x":259,"y":1561,"w":177,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":177,"h":128},
+	"sourceSize": {"w":177,"h":128}
+},
+"outdoor-tiles_42.png":
+{
+	"frame": {"x":1372,"y":1431,"w":177,"h":117},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":177,"h":117},
+	"sourceSize": {"w":177,"h":117}
+},
+"outdoor-tiles_43.png":
+{
+	"frame": {"x":695,"y":1818,"w":161,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":161,"h":128},
+	"sourceSize": {"w":161,"h":128}
+},
+"outdoor-tiles_44.png":
+{
+	"frame": {"x":651,"y":1168,"w":193,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":193,"h":128},
+	"sourceSize": {"w":193,"h":128}
+},
+"outdoor-tiles_45.png":
+{
+	"frame": {"x":454,"y":1270,"w":193,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":193,"h":128},
+	"sourceSize": {"w":193,"h":128}
+},
+"outdoor-tiles_46.png":
+{
+	"frame": {"x":259,"y":1301,"w":193,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":193,"h":128},
+	"sourceSize": {"w":193,"h":128}
+},
+"outdoor-tiles_47.png":
+{
+	"frame": {"x":772,"y":391,"w":233,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":233,"h":128},
+	"sourceSize": {"w":233,"h":128}
+},
+"outdoor-tiles_48.png":
+{
+	"frame": {"x":763,"y":521,"w":233,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":233,"h":128},
+	"sourceSize": {"w":233,"h":128}
+},
+"outdoor-tiles_49.png":
+{
+	"frame": {"x":259,"y":911,"w":202,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":202,"h":128},
+	"sourceSize": {"w":202,"h":128}
+},
+"outdoor-tiles_50.png":
+{
+	"frame": {"x":721,"y":911,"w":202,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":202,"h":128},
+	"sourceSize": {"w":202,"h":128}
+},
+"outdoor-tiles_51.png":
+{
+	"frame": {"x":145,"y":1936,"w":142,"h":69},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":142,"h":69},
+	"sourceSize": {"w":142,"h":69}
+},
+"outdoor-tiles_52.png":
+{
+	"frame": {"x":1879,"y":521,"w":168,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":168,"h":128},
+	"sourceSize": {"w":168,"h":128}
+},
+"outdoor-tiles_53.png":
+{
+	"frame": {"x":1,"y":1936,"w":142,"h":107},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":142,"h":107},
+	"sourceSize": {"w":142,"h":107}
+},
+"outdoor-tiles_54.png":
+{
+	"frame": {"x":1879,"y":651,"w":168,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":168,"h":128},
+	"sourceSize": {"w":168,"h":128}
+},
+"outdoor-tiles_55.png":
+{
+	"frame": {"x":1196,"y":1418,"w":174,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":174,"h":128},
+	"sourceSize": {"w":174,"h":128}
+},
+"outdoor-tiles_56.png":
+{
+	"frame": {"x":1333,"y":911,"w":200,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":200,"h":128},
+	"sourceSize": {"w":200,"h":128}
+},
+"outdoor-tiles_57.png":
+{
+	"frame": {"x":925,"y":911,"w":202,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":202,"h":128},
+	"sourceSize": {"w":202,"h":128}
+},
+"outdoor-tiles_58.png":
+{
+	"frame": {"x":1172,"y":1548,"w":170,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":170,"h":128},
+	"sourceSize": {"w":170,"h":128}
+},
+"outdoor-tiles_59.png":
+{
+	"frame": {"x":612,"y":1688,"w":168,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":168,"h":128},
+	"sourceSize": {"w":168,"h":128}
+},
+"outdoor-tiles_60.png":
+{
+	"frame": {"x":969,"y":1561,"w":170,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":170,"h":128},
+	"sourceSize": {"w":170,"h":128}
+},
+"outdoor-tiles_61.png":
+{
+	"frame": {"x":640,"y":1428,"w":178,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":128},
+	"sourceSize": {"w":178,"h":128}
+},
+"outdoor-tiles_62.png":
+{
+	"frame": {"x":1129,"y":911,"w":202,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":202,"h":128},
+	"sourceSize": {"w":202,"h":128}
+},
+"outdoor-tiles_63.png":
+{
+	"frame": {"x":1563,"y":781,"w":204,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":204,"h":128},
+	"sourceSize": {"w":204,"h":128}
+},
+"outdoor-tiles_64.png":
+{
+	"frame": {"x":454,"y":1400,"w":184,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":184,"h":128},
+	"sourceSize": {"w":184,"h":128}
+},
+"outdoor-tiles_65.png":
+{
+	"frame": {"x":441,"y":1530,"w":178,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":128},
+	"sourceSize": {"w":178,"h":128}
+},
+"outdoor-tiles_66.png":
+{
+	"frame": {"x":727,"y":781,"w":208,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":208,"h":128},
+	"sourceSize": {"w":208,"h":128}
+},
+"outdoor-tiles_67.png":
+{
+	"frame": {"x":1147,"y":781,"w":206,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":206,"h":128},
+	"sourceSize": {"w":206,"h":128}
+},
+"outdoor-tiles_68.png":
+{
+	"frame": {"x":998,"y":1431,"w":172,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":172,"h":128},
+	"sourceSize": {"w":172,"h":128}
+},
+"outdoor-tiles_69.png":
+{
+	"frame": {"x":621,"y":1558,"w":172,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":172,"h":128},
+	"sourceSize": {"w":172,"h":128}
+},
+"outdoor-tiles_70.png":
+{
+	"frame": {"x":438,"y":1660,"w":172,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":172,"h":128},
+	"sourceSize": {"w":172,"h":128}
+},
+"outdoor-tiles_71.png":
+{
+	"frame": {"x":1696,"y":1041,"w":186,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":186,"h":128},
+	"sourceSize": {"w":186,"h":128}
+},
+"outdoor-tiles_72.png":
+{
+	"frame": {"x":1769,"y":781,"w":204,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":204,"h":128},
+	"sourceSize": {"w":204,"h":128}
+},
+"outdoor-tiles_73.png":
+{
+	"frame": {"x":1721,"y":1431,"w":156,"h":127},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":156,"h":127},
+	"sourceSize": {"w":156,"h":127}
+},
+"outdoor-tiles_74.png":
+{
+	"frame": {"x":782,"y":1688,"w":168,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":168,"h":128},
+	"sourceSize": {"w":168,"h":128}
+},
+"outdoor-tiles_75.png":
+{
+	"frame": {"x":1551,"y":1431,"w":168,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":168,"h":128},
+	"sourceSize": {"w":168,"h":128}
+},
+"outdoor-tiles_76.png":
+{
+	"frame": {"x":795,"y":1558,"w":172,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":172,"h":128},
+	"sourceSize": {"w":172,"h":128}
+},
+"outdoor-tiles_77.png":
+{
+	"frame": {"x":455,"y":1140,"w":194,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":194,"h":128},
+	"sourceSize": {"w":194,"h":128}
+},
+"outdoor-tiles_78.png":
+{
+	"frame": {"x":1535,"y":911,"w":200,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":200,"h":128},
+	"sourceSize": {"w":200,"h":128}
+},
+"outdoor-tiles_79.png":
+{
+	"frame": {"x":1344,"y":1550,"w":168,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":168,"h":128},
+	"sourceSize": {"w":168,"h":128}
+},
+"outdoor-tiles_80.png":
+{
+	"frame": {"x":1141,"y":1678,"w":168,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":168,"h":128},
+	"sourceSize": {"w":168,"h":128}
+},
+"outdoor-tiles_81.png":
+{
+	"frame": {"x":515,"y":781,"w":210,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":210,"h":128},
+	"sourceSize": {"w":210,"h":128}
+},
+"outdoor-tiles_82.png":
+{
+	"frame": {"x":1253,"y":131,"w":224,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":224,"h":128},
+	"sourceSize": {"w":224,"h":128}
+},
+"outdoor-tiles_83.png":
+{
+	"frame": {"x":1239,"y":261,"w":222,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":222,"h":128},
+	"sourceSize": {"w":222,"h":128}
+},
+"outdoor-tiles_84.png":
+{
+	"frame": {"x":937,"y":781,"w":208,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":208,"h":128},
+	"sourceSize": {"w":208,"h":128}
+},
+"outdoor-tiles_85.png":
+{
+	"frame": {"x":259,"y":781,"w":210,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":210,"h":128},
+	"sourceSize": {"w":210,"h":128}
+},
+"outdoor-tiles_86.png":
+{
+	"frame": {"x":1501,"y":1,"w":218,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":218,"h":128},
+	"sourceSize": {"w":218,"h":128}
+},
+"outdoor-tiles_87.png":
+{
+	"frame": {"x":1225,"y":521,"w":220,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":220,"h":128},
+	"sourceSize": {"w":220,"h":128}
+},
+"outdoor-tiles_88.png":
+{
+	"frame": {"x":1463,"y":261,"w":218,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":218,"h":128},
+	"sourceSize": {"w":218,"h":128}
+},
+"outdoor-tiles_89.png":
+{
+	"frame": {"x":1355,"y":781,"w":206,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":206,"h":128},
+	"sourceSize": {"w":206,"h":128}
+},
+"outdoor-tiles_90.png":
+{
+	"frame": {"x":1456,"y":391,"w":216,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":216,"h":128},
+	"sourceSize": {"w":216,"h":128}
+},
+"outdoor-tiles_91.png":
+{
+	"frame": {"x":515,"y":911,"w":204,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":204,"h":128},
+	"sourceSize": {"w":204,"h":128}
+},
+"outdoor-tiles_92.png":
+{
+	"frame": {"x":1274,"y":1,"w":225,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":225,"h":128},
+	"sourceSize": {"w":225,"h":128}
+},
+"outdoor-tiles_93.png":
+{
+	"frame": {"x":1041,"y":1171,"w":185,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":185,"h":128},
+	"sourceSize": {"w":185,"h":128}
+},
+"outdoor-tiles_94.png":
+{
+	"frame": {"x":1112,"y":1041,"w":193,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":193,"h":128},
+	"sourceSize": {"w":193,"h":128}
+},
+"outdoor-tiles_95.png":
+{
+	"frame": {"x":649,"y":1298,"w":185,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":185,"h":128},
+	"sourceSize": {"w":185,"h":128}
+},
+"outdoor-tiles_96.png":
+{
+	"frame": {"x":1307,"y":1041,"w":193,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":193,"h":128},
+	"sourceSize": {"w":193,"h":128}
+},
+"outdoor-tiles_97.png":
+{
+	"frame": {"x":1888,"y":391,"w":158,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":158,"h":128},
+	"sourceSize": {"w":158,"h":128}
+},
+"outdoor-tiles_98.png":
+{
+	"frame": {"x":1734,"y":1301,"w":158,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":158,"h":128},
+	"sourceSize": {"w":158,"h":128}
+},
+"outdoor-tiles_99.png":
+{
+	"frame": {"x":1433,"y":1812,"w":154,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":154,"h":128},
+	"sourceSize": {"w":154,"h":128}
+},
+"outdoor-tiles_100.png":
+{
+	"frame": {"x":1911,"y":131,"w":136,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":136,"h":128},
+	"sourceSize": {"w":136,"h":128}
+},
+"outdoor-tiles_101.png":
+{
+	"frame": {"x":1589,"y":1821,"w":144,"h":115},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":144,"h":115},
+	"sourceSize": {"w":144,"h":115}
+},
+"outdoor-tiles_102.png":
+{
+	"frame": {"x":1785,"y":1691,"w":148,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":148,"h":128},
+	"sourceSize": {"w":148,"h":128}
+},
+"outdoor-tiles_103.png":
+{
+	"frame": {"x":1894,"y":1301,"w":148,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":148,"h":128},
+	"sourceSize": {"w":148,"h":128}
+},
+"outdoor-tiles_104.png":
+{
+	"frame": {"x":1311,"y":1680,"w":160,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":160,"h":128},
+	"sourceSize": {"w":160,"h":128}
+},
+"outdoor-tiles_105.png":
+{
+	"frame": {"x":1115,"y":1808,"w":160,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":160,"h":128},
+	"sourceSize": {"w":160,"h":128}
+},
+"outdoor-tiles_106.png":
+{
+	"frame": {"x":858,"y":1821,"w":160,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":160,"h":128},
+	"sourceSize": {"w":160,"h":128}
+},
+"outdoor-tiles_107.png":
+{
+	"frame": {"x":515,"y":1935,"w":160,"h":109},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":160,"h":109},
+	"sourceSize": {"w":160,"h":109}
+},
+"outdoor-tiles_108.png":
+{
+	"frame": {"x":1677,"y":1561,"w":160,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":160,"h":128},
+	"sourceSize": {"w":160,"h":128}
+},
+"outdoor-tiles_109.png":
+{
+	"frame": {"x":1502,"y":1041,"w":192,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":192,"h":128},
+	"sourceSize": {"w":192,"h":128}
+},
+"outdoor-tiles_110.png":
+{
+	"frame": {"x":1839,"y":1560,"w":154,"h":115},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":154,"h":115},
+	"sourceSize": {"w":154,"h":115}
+},
+"outdoor-tiles_111.png":
+{
+	"frame": {"x":1473,"y":1682,"w":154,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":154,"h":128},
+	"sourceSize": {"w":154,"h":128}
+},
+"outdoor-tiles_112.png":
+{
+	"frame": {"x":1895,"y":261,"w":152,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":152,"h":128},
+	"sourceSize": {"w":152,"h":128}
+},
+"outdoor-tiles_113.png":
+{
+	"frame": {"x":1277,"y":1810,"w":154,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":154,"h":128},
+	"sourceSize": {"w":154,"h":128}
+},
+"outdoor-tiles_114.png":
+{
+	"frame": {"x":1629,"y":1691,"w":154,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":154,"h":128},
+	"sourceSize": {"w":154,"h":128}
+},
+"outdoor-tiles_115.png":
+{
+	"frame": {"x":1879,"y":1431,"w":154,"h":115},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":154,"h":115},
+	"sourceSize": {"w":154,"h":115}
+},
+"outdoor-tiles_116.png":
+{
+	"frame": {"x":772,"y":1,"w":249,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":249,"h":128},
+	"sourceSize": {"w":249,"h":128}
+},
+"outdoor-tiles_117.png":
+{
+	"frame": {"x":1,"y":261,"w":256,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":128},
+	"sourceSize": {"w":256,"h":128}
+},
+"outdoor-tiles_118.png":
+{
+	"frame": {"x":997,"y":651,"w":225,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":225,"h":128},
+	"sourceSize": {"w":225,"h":128}
+},
+"outdoor-tiles_119.png":
+{
+	"frame": {"x":1026,"y":131,"w":225,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":225,"h":128},
+	"sourceSize": {"w":225,"h":128}
+},
+"outdoor-tiles_120.png":
+{
+	"frame": {"x":1,"y":1691,"w":256,"h":113},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":113},
+	"sourceSize": {"w":256,"h":113}
+},
+"outdoor-tiles_121.png":
+{
+	"frame": {"x":1,"y":391,"w":256,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":128},
+	"sourceSize": {"w":256,"h":128}
+},
+"outdoor-tiles_122.png":
+{
+	"frame": {"x":259,"y":1431,"w":180,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":128},
+	"sourceSize": {"w":180,"h":128}
+},
+"outdoor-tiles_123.png":
+{
+	"frame": {"x":836,"y":1298,"w":178,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":128},
+	"sourceSize": {"w":178,"h":128}
+},
+"outdoor-tiles_124.png":
+{
+	"frame": {"x":1196,"y":1301,"w":178,"h":115},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":115},
+	"sourceSize": {"w":178,"h":115}
+},
+"outdoor-tiles_125.png":
+{
+	"frame": {"x":1228,"y":1171,"w":178,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":128},
+	"sourceSize": {"w":178,"h":128}
+},
+"outdoor-tiles_126.png":
+{
+	"frame": {"x":259,"y":1691,"w":176,"h":97},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":176,"h":97},
+	"sourceSize": {"w":176,"h":97}
+},
+"outdoor-tiles_127.png":
+{
+	"frame": {"x":719,"y":1041,"w":196,"h":125},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":196,"h":125},
+	"sourceSize": {"w":196,"h":125}
+},
+"outdoor-tiles_128.png":
+{
+	"frame": {"x":515,"y":1041,"w":202,"h":97},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":202,"h":97},
+	"sourceSize": {"w":202,"h":97}
+},
+"outdoor-tiles_129.png":
+{
+	"frame": {"x":1554,"y":1301,"w":178,"h":115},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":115},
+	"sourceSize": {"w":178,"h":115}
+},
+"outdoor-tiles_130.png":
+{
+	"frame": {"x":820,"y":1428,"w":176,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":176,"h":128},
+	"sourceSize": {"w":176,"h":128}
+},
+"outdoor-tiles_131.png":
+{
+	"frame": {"x":1408,"y":1171,"w":178,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":128},
+	"sourceSize": {"w":178,"h":128}
+},
+"outdoor-tiles_132.png":
+{
+	"frame": {"x":1376,"y":1301,"w":176,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":176,"h":128},
+	"sourceSize": {"w":176,"h":128}
+},
+"outdoor-tiles_133.png":
+{
+	"frame": {"x":259,"y":1041,"w":194,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":194,"h":128},
+	"sourceSize": {"w":194,"h":128}
+},
+"outdoor-tiles_134.png":
+{
+	"frame": {"x":1699,"y":131,"w":210,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":210,"h":128},
+	"sourceSize": {"w":210,"h":128}
+},
+"outdoor-tiles_135.png":
+{
+	"frame": {"x":515,"y":1818,"w":178,"h":115},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":115},
+	"sourceSize": {"w":178,"h":115}
+},
+"outdoor-tiles_136.png":
+{
+	"frame": {"x":1588,"y":1171,"w":178,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":128},
+	"sourceSize": {"w":178,"h":128}
+},
+"outdoor-tiles_137.png":
+{
+	"frame": {"x":1768,"y":1171,"w":178,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":128},
+	"sourceSize": {"w":178,"h":128}
+},
+"outdoor-tiles_138.png":
+{
+	"frame": {"x":1016,"y":1301,"w":178,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":128},
+	"sourceSize": {"w":178,"h":128}
+},
+"outdoor-tiles_139.png":
+{
+	"frame": {"x":1737,"y":911,"w":196,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":196,"h":128},
+	"sourceSize": {"w":196,"h":128}
+},
+"outdoor-tiles_140.png":
+{
+	"frame": {"x":1721,"y":1,"w":210,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":210,"h":128},
+	"sourceSize": {"w":210,"h":128}
+},
+"outdoor-tiles_141.png":
+{
+	"frame": {"x":1514,"y":1561,"w":161,"h":119},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":161,"h":119},
+	"sourceSize": {"w":161,"h":119}
+},
+"outdoor-tiles_142.png":
+{
+	"frame": {"x":1884,"y":1041,"w":161,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":161,"h":128},
+	"sourceSize": {"w":161,"h":128}
+},
+"outdoor-tiles_143.png":
+{
+	"frame": {"x":952,"y":1691,"w":161,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":161,"h":128},
+	"sourceSize": {"w":161,"h":128}
+},
+"outdoor-tiles_144.png":
+{
+	"frame": {"x":846,"y":1171,"w":193,"h":119},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":193,"h":119},
+	"sourceSize": {"w":193,"h":119}
+},
+"outdoor-tiles_145.png":
+{
+	"frame": {"x":259,"y":1171,"w":193,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":193,"h":128},
+	"sourceSize": {"w":193,"h":128}
+},
+"outdoor-tiles_146.png":
+{
+	"frame": {"x":917,"y":1041,"w":193,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":193,"h":128},
+	"sourceSize": {"w":193,"h":128}
+},
+"outdoor-tiles_147.png":
+{
+	"frame": {"x":500,"y":651,"w":3,"h":3},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":3,"h":3},
+	"sourceSize": {"w":3,"h":3}
+}},
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "outdoor.png",
+	"format": "RGBA8888",
+	"size": {"w":2048,"h":2048},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:a40419a4f5958556f3dccd907d99d11a:dbb5c79bd96b1eb2f5d41820826682cb:bd72b1cff47c3917fca8f07fc3edf17d$"
+}
+}
