@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html off-manifest="manifest.appcache" ng-app="2018-xxxx - burguu-matya">
+<html ng-app="YtGL">
 
 <head>
 
@@ -37,65 +37,39 @@
 
 
 	<!--Icons-->
-		<link rel="apple-touch-icon" href="sys/img/icons/apple-touch-icon.png">
-		<link rel="icon" sizes="128x128" href="sys/img/icons/apple-touch-icon.png">
-
-
-
-	<!--Splashes-->
-        <link href="sys/img/splashes/apple-touch-startup-image-320x460.png" media="(device-width: 320px)" rel="apple-touch-startup-image">
-        <link href="sys/img/splashes/apple-touch-startup-image-640x920.png" media="(device-width: 320px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
-        <link href="sys/img/splashes/apple-touch-startup-image-768x1004.png" media="(device-width: 768px) and (orientation: portrait)" rel="apple-touch-startup-image">
-        <link href="sys/img/splashes/apple-touch-startup-image-748x1024.png" media="(device-width: 768px) and (orientation: landscape)" rel="apple-touch-startup-image">
-        <link href="sys/img/splashes/apple-touch-startup-image-1536x2008.png" media="(device-width: 768px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
-        <link href="sys/img/splashes/apple-touch-startup-image-1496x2048.png" media="(device-width: 768px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+		<link rel="apple-touch-icon" href="sys/img/icons/icon.png">
+		<link rel="icon" sizes="128x128" href="sys/img/icons/icon.png">
 
 
 	<!--Stylesheets-->
 		<link rel="stylesheet" type="text/css" href="bower_components/open-sans/css/open-sans.min.css" >
 		<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css" >
+		<link rel="stylesheet" type="text/css" href="bower_components/font-awesome/web-fonts-with-css/css/fontawesome-all.css" >
 		<link rel="stylesheet" type="text/css" href="sys/css/spinner.css" >
-		<link rel="stylesheet" type="text/css" href="sys/css/styles.css" media="all and (min-width: 600px)">
-		<link rel="stylesheet" type="text/css" href="sys/css/mobile.css" media="all and (max-width: 599px)">
+		<link rel="stylesheet" type="text/css" href="sys/css/styles.css">
 
 
 	<!--Scripts-->
 		<script src="bower_components/jquery/dist/jquery.min.js"></script>
 		<script src="bower_components/angular/angular.min.js"></script>
-		<!-- <script src="bower_components/pepjs/dist/pep.min.js"></script> -->
+		<script src="bower_components/pepjs/dist/pep.min.js"></script>
+		<script src="sys/js/pixi.min.js"></script>
 		<script src="sys/js/socket.io.min.js"></script>
 
 
-
-
 	<!--The title-->
-		<title>Burguu Matya</title>
+		<title>YtGL</title>
 
-
-
-	<!--For information about this job, please see: `sys/css/styles.css`-->
 
 
 </head>
-<body ng-controller="master" class="page-{{$root.page || 'main-menu'}}" ng-class="{'game-state-playing': game.numberOfPlayers == 2, 'show-rules': $root.rules}">
-	<div class="game-container">
-	<!-- This is the parallaxing background -->
-		<trees></trees>
-
-	<!-- Lets bring in all the pages -->
-		<div class="screen">			
-			<main-menu></main-menu>
-			<game-screen></game-screen>
-			<rules class="rules-main-screen"></rules>
-		</div>
-		<rules class="rules-game-screen"></rules>
-
+<body ng-controller="master" ng-init="init()">
+	
+	<div class="page page-{{$root.page || 'loading'}}"  ng-class="{'fade-out': $root.pageChanging}">
+		<div ng-show="$root.page != 'game'" ng-include="'sys/pages/' + ($root.page || 'loading') + '.html'"></div>
+		<div class="game" ng-show="$root.page == 'game'"></div>
 	</div>
 
-
-
-		<div class="preload"></div>
-		<div class="mode"></div>
 
 	<!--Initialize the app-->
 	<script src="sys/js/main.js"></script>

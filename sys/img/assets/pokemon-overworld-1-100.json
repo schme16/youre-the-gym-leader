@@ -1627,7 +1627,7 @@
 "meta": {
 	"app": "http://www.codeandweb.com/texturepacker",
 	"version": "1.0",
-	"image": "D:/Dropbox-new/Dropbox/www/Games/youre-the-gym-leader/sys/img/assets/pokemon-overworld-1-100.png",
+	"image": "pokemon-overworld-1-100.png",
 	"format": "RGBA8888",
 	"size": {"w":4096,"h":4096},
 	"scale": "1",

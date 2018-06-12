@@ -1,0 +1,28 @@
+This Pokemon Resource Pack was assembled by 4th Gen Matt.
+It contains a complete Kanto and Johto tileset, complete
+soundtracks from Pokemon FR/LG, G/S, R/S, D/P, and Pokemon Colosseum
+As well as all 493 Pokemon cries.  It also contains about 300
+character sets, all of the Platinum sprites, both normal and shiny,
+and every form of Arceus as well as the secret 18th form.
+
+If you use this resource pack, give credit to me as well as everyone
+listed below in the credits.  It would be greatly appreciated.
+
+If you need to contact me for any reason, send me a private
+message at the PokeCommunity forums.  My username there is
+4th Gen Matt.
+
+This resource pack does not currently have a complete Sinnoh
+or Hoenn tileset.  If you have or know of one that I can use,
+then send me a PM on PokeCommunity with the download link.
+
+Credits
+
+Nintendo - For making all of the sprites, music, etc.
+RM2K3Kid - For ripping the D/P Overworld Sprites.
+Aeonos and Mastermind_X - For ripping the Platinum and Arceus sprites.
+
+I suck at remembering names for the credits, but if you see
+your work in this resource pack and feel like you deserve credit,
+then feel free to send me a PM on the PokeCommunity forums and
+I will gladly add you to the list.
