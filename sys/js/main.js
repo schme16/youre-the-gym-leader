@@ -63,9 +63,11 @@ angular.module('YtGL', [])
 			y: 0,
 			_X: 0,
 			_Y: 0,
-			sprites: {}
+			sprites: {},
+			direction: 'right'
 		},
-		tail: 0.1
+		tail: 0.1,
+		cameraLockedToPlayer: false
 	}
 
 	m.noop = function noop () {/*Performs no action- good for compilers though...*/}
@@ -190,7 +192,7 @@ angular.module('YtGL', [])
 	    var frames = [];
 
 	    for (var i in ids) {
-	        frames.push(PIXI.Texture.fromFrame(i));
+	        frames.push(PIXI.Texture.fromFrame(ids[i]));
 	    }
 
 	    var anim = new PIXI.extras.AnimatedSprite(frames);
@@ -291,11 +293,62 @@ angular.module('YtGL', [])
 					for (var i in data.layers[layer].objects) {
 						var o = data.layers[layer].objects[i]
 
+
 						//Add the player
 						if (o.properties && o.properties.isPlayer) {
-							//m.game.player.sprites.up = m.createAnimatedClip()
 							m.game.player._X = m.toTile(o.x)
 							m.game.player._Y = m.toTile(o.y) - 1
+
+							var playerTileset = [
+								'HGSS_220_walk_0.png',
+								'HGSS_220_walk_1.png',
+								'HGSS_220_walk_2.png',
+								'HGSS_220_walk_3.png',
+								'HGSS_220_walk_4.png',
+								'HGSS_220_walk_5.png',
+								'HGSS_220_walk_6.png',
+								'HGSS_220_walk_7.png',
+								'HGSS_220_walk_8.png',
+								'HGSS_220_walk_9.png',
+								'HGSS_220_walk_10.png',
+								'HGSS_220_walk_11.png',
+								'HGSS_220_walk_12.png',
+								'HGSS_220_walk_13.png',
+								'HGSS_220_walk_14.png',
+								'HGSS_220_walk_15.png'
+							]
+
+							for (var i = 0; i < 4; i++) {
+								var t = [],
+									name = ''
+
+								if (i == 0) {
+									name = 'down'
+								}
+								else if (i == 1) {
+									name = 'left'
+								}
+								else if (i == 2) {
+									name = 'right'
+								}
+								else if (i == 3) {
+									name = 'up'
+								}
+
+								t.push(playerTileset[i * 4])
+								t.push(playerTileset[i * 4 + 1])
+								t.push(playerTileset[i * 4 + 2])
+								t.push(playerTileset[i * 4 + 3])
+
+								m.game.player.sprites[name] = m.createAnimatedClip(t)
+								m.game.player.sprites[name].position.x = m.fromTile(m.game.player._X)
+								m.game.player.sprites[name].position.y = m.fromTile(m.game.player._Y)
+								m.stages.main.addChild(m.game.player.sprites[name])
+								if (name != m.game.player.direction) m.game.player.sprites[name].alpha = 0
+							}
+
+
+
 						}
 
 						//Other objects
@@ -327,9 +380,7 @@ angular.module('YtGL', [])
 
 
 		if (m.game.playing) {
-			//m._walking = !(Math.abs(m.stages.main.position.x - -(m.game.player.x * m.game.tileSize)) < 20)
-			//m._walking = m._walking || !(Math.abs(m.stages.main.position.y - -(m.game.player.y * m.game.tileSize)) < 20)
-			m._walking = false
+
 
 			m.movePlayer()
 			
@@ -342,14 +393,25 @@ angular.module('YtGL', [])
 
 	m.moveCamera = function () {
 
+
 		var distX = m.game.player.x - m.game.player._X,
 			distY = m.game.player.y - m.game.player._Y
 
+
+		//Get the player sprite data ready
+		for(var i in ['left', 'right', 'up', 'down']) {
+			var list = ['left', 'right', 'up', 'down'][i]
+			m.game.player.sprites[list].stop()
+			m.game.player.sprites[list].animationSpeed = (m.game.speed * 3) * m.dt
+		}
+
 		if (distX < 0 && Math.abs(distX) > m.game.tail) {
 			m.game.player.x += (m.dt * m.game.speed)
+			if (m.game.cameraLockedToPlayer) m.game.player.sprites[m.game.player.direction].play()
 		}
 		else if (distX > 0 && Math.abs(distX) > m.game.tail) {
 			m.game.player.x -= (m.dt * m.game.speed)
+			if (m.game.cameraLockedToPlayer) m.game.player.sprites[m.game.player.direction].play()
 		}
 		else if (Math.abs(distX) <= m.game.tail) {
 			m.game.player.x = m.game.player._X
@@ -359,16 +421,36 @@ angular.module('YtGL', [])
 
 		if (distY < 0 && Math.abs(distY) > m.game.tail) {
 			m.game.player.y += (m.dt * m.game.speed)
+			if (m.game.cameraLockedToPlayer) m.game.player.sprites[m.game.player.direction].play()
 		}
 		else if (distY > 0 && Math.abs(distY) > m.game.tail) {
 			m.game.player.y-= (m.dt * m.game.speed)
+			if (m.game.cameraLockedToPlayer) m.game.player.sprites[m.game.player.direction].play()
 		}
 		else if (Math.abs(distY) <= m.game.tail) {
 			m.game.player.y = m.game.player._Y
 		}
 
+
+
+		//move the camera to the correct position
 		m.stages.main.position.x = -((m.game.player.x * m.game.tileSize)) + m.game.width / 2
 		m.stages.main.position.y = -((m.game.player.y * m.game.tileSize)) + m.game.height / 2
+
+
+
+		//Get the player sprite data ready
+		for(var i in ['left', 'right', 'up', 'down']) {
+			var list = ['left', 'right', 'up', 'down'][i]
+			m.game.player.sprites[list].alpha = 0
+			
+			if (m.game.cameraLockedToPlayer) {
+				m.game.player.sprites[list].position.x = (m.game.player.x * m.game.tileSize)
+				m.game.player.sprites[list].position.y = (m.game.player.y * m.game.tileSize)
+			}
+		}
+
+		m.game.player.sprites[m.game.player.direction].alpha = 1
 
 	}
 
@@ -392,18 +474,22 @@ angular.module('YtGL', [])
 
 		if (m.getKey("LEFT") || m.getKey("A") ) {
 			pos.x--
+			if (m.game.cameraLockedToPlayer) m.game.player.direction = 'left'
 		}
 		
-		if (m.getKey("RIGHT") || m.getKey("D") ) {
+		else if (m.getKey("RIGHT") || m.getKey("D") ) {
 			pos.x++
+			if (m.game.cameraLockedToPlayer) m.game.player.direction = 'right'
 		}
 		
-		if (m.getKey("UP") || m.getKey("W") ) {
+		else if (m.getKey("UP") || m.getKey("W") ) {
 			pos.y--
+			if (m.game.cameraLockedToPlayer) m.game.player.direction = 'up'
 		}
 		
-		if (m.getKey("DOWN") || m.getKey("S") ) {
+		else if (m.getKey("DOWN") || m.getKey("S") ) {
 			pos.y++
+			if (m.game.cameraLockedToPlayer) m.game.player.direction = 'down'
 		}
 
 		if (!m.checkCollison(pos) && pos.x > 0 && pos.y > 0 && pos.x < m.game.mapRaw.width && pos.y < m.game.mapRaw.height) {
