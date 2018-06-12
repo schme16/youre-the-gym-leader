@@ -57,17 +57,21 @@ angular.module('YtGL', [])
 		tileSize: 32,
 		x: 0,
 		y: 0,
-		speed: 5,
+		introSpeed: 8,
+		speed: 3,
+		gameSpeed: 3,
 		player: {
 			x: 0,
 			y: 0,
 			_X: 0,
 			_Y: 0,
 			sprites: {},
-			direction: 'right'
+			direction: 'right',
+			yOffset: -10
 		},
 		tail: 0.1,
-		cameraLockedToPlayer: false
+		cameraLockedToPlayer: false,
+		intro: true
 	}
 
 	m.noop = function noop () {/*Performs no action- good for compilers though...*/}
@@ -143,6 +147,7 @@ angular.module('YtGL', [])
 	}
 
 	m.getKey = function (key) {
+
 		return m.keys[m.key[key]]
 	}
 
@@ -263,6 +268,10 @@ angular.module('YtGL', [])
 	}
 
 	m.loadMap = function (filename, callback) {
+		m.game.speed = m.game.introSpeed
+		m.game.cameraLockedToPlayer = false
+
+
 		$.getJSON('sys/maps/' + filename + '.json').success(function(data) {
 			m.game.playing = true
 			m.game.mapRaw = data
@@ -280,7 +289,8 @@ angular.module('YtGL', [])
 					for (var x in data.layers[layer].data) {
 						var sprite = new PIXI.Sprite (m.res.pkmnTilesX2.textures['tiles_' + (data.layers[layer].data[x] - 1) + '.png'])
 						sprite.position.x = (x % data.layers[layer].width) * m.game.tileSize
-						sprite.position.y = (x / data.layers[layer].width).toFixed(0) * m.game.tileSize
+						sprite.position.y = (Math.floor(x / data.layers[layer].width)).toFixed(0) * m.game.tileSize
+						//if (layer == 0 && x < 150) console.log(x, Math.floor(x / data.layers[layer].width))
 						md.addChild(sprite)
 					}
 
@@ -288,6 +298,8 @@ angular.module('YtGL', [])
 					m.stages.main.addChild(md)
 
 				}
+
+				//Objects and player/s
 				else {
 
 					for (var i in data.layers[layer].objects) {
@@ -341,14 +353,14 @@ angular.module('YtGL', [])
 								t.push(playerTileset[i * 4 + 3])
 
 								m.game.player.sprites[name] = m.createAnimatedClip(t)
-								m.game.player.sprites[name].position.x = m.fromTile(m.game.player._X)
-								m.game.player.sprites[name].position.y = m.fromTile(m.game.player._Y)
+								m.game.player.sprites[name].position.x = (m.game.player._X * m.game.tileSize)
+								m.game.player.sprites[name].position.y = (m.game.player._Y * m.game.tileSize) + m.game.player.yOffset
+
+
+
 								m.stages.main.addChild(m.game.player.sprites[name])
 								if (name != m.game.player.direction) m.game.player.sprites[name].alpha = 0
 							}
-
-
-
 						}
 
 						//Other objects
@@ -391,27 +403,37 @@ angular.module('YtGL', [])
 		requestAnimationFrame(m.loop)
 	}
 
+	m.percent = function (a, b) {
+
+		return (a / b) * 100;
+	}
+
 	m.moveCamera = function () {
 
 
 		var distX = m.game.player.x - m.game.player._X,
-			distY = m.game.player.y - m.game.player._Y
+			distY = m.game.player.y - m.game.player._Y,
+			animate = false
 
 
 		//Get the player sprite data ready
 		for(var i in ['left', 'right', 'up', 'down']) {
 			var list = ['left', 'right', 'up', 'down'][i]
-			m.game.player.sprites[list].stop()
-			m.game.player.sprites[list].animationSpeed = (m.game.speed * 3) * m.dt
+			//m.game.player.sprites[list].stop()
+			//m.game.player.sprites[list].loop = true
+			//m.game.player.sprites[list].onLoop = function () {
+				//console.log(m.game.player.sprites[list])
+				//this.gotoAndStop(0)
+			//}
+
+			m.game.player.sprites[list].animationSpeed = (m.game.speed * m.game.player.animationSpeed) * m.dt
 		}
 
 		if (distX < 0 && Math.abs(distX) > m.game.tail) {
 			m.game.player.x += (m.dt * m.game.speed)
-			if (m.game.cameraLockedToPlayer) m.game.player.sprites[m.game.player.direction].play()
 		}
 		else if (distX > 0 && Math.abs(distX) > m.game.tail) {
 			m.game.player.x -= (m.dt * m.game.speed)
-			if (m.game.cameraLockedToPlayer) m.game.player.sprites[m.game.player.direction].play()
 		}
 		else if (Math.abs(distX) <= m.game.tail) {
 			m.game.player.x = m.game.player._X
@@ -421,15 +443,34 @@ angular.module('YtGL', [])
 
 		if (distY < 0 && Math.abs(distY) > m.game.tail) {
 			m.game.player.y += (m.dt * m.game.speed)
-			if (m.game.cameraLockedToPlayer) m.game.player.sprites[m.game.player.direction].play()
 		}
 		else if (distY > 0 && Math.abs(distY) > m.game.tail) {
 			m.game.player.y-= (m.dt * m.game.speed)
-			if (m.game.cameraLockedToPlayer) m.game.player.sprites[m.game.player.direction].play()
 		}
 		else if (Math.abs(distY) <= m.game.tail) {
 			m.game.player.y = m.game.player._Y
 		}
+
+		if (m.game.cameraLockedToPlayer) {
+
+			var fPercent = ((Math.abs(distX || distY)/m.game.tail) * 10)
+			
+			if (fPercent < 40 && fPercent > 0) {
+				m.game.player.sprites[m.game.player.direction].gotoAndStop(3)
+			}
+			else if (fPercent < 65) {
+				m.game.player.sprites[m.game.player.direction].gotoAndStop(2)
+
+			}
+			else if (fPercent < 85) {
+				m.game.player.sprites[m.game.player.direction].gotoAndStop(1)
+			}
+			else {
+				m.game.player.sprites[m.game.player.direction].gotoAndStop(0)
+			}
+		}
+
+
 
 
 
@@ -437,24 +478,37 @@ angular.module('YtGL', [])
 		m.stages.main.position.x = -((m.game.player.x * m.game.tileSize)) + m.game.width / 2
 		m.stages.main.position.y = -((m.game.player.y * m.game.tileSize)) + m.game.height / 2
 
+		if (Math.abs(distX || distY) == 0) {
+			m.game.cameraLockedToPlayer = true
+			m.game.speed = m.game.gameSpeed
+		}
 
 
 		//Get the player sprite data ready
 		for(var i in ['left', 'right', 'up', 'down']) {
 			var list = ['left', 'right', 'up', 'down'][i]
 			m.game.player.sprites[list].alpha = 0
-			
 			if (m.game.cameraLockedToPlayer) {
+				if (!m.game.player.sprites[list].playing) {
+					m.game.player.sprites[list].loop = false
+				}
 				m.game.player.sprites[list].position.x = (m.game.player.x * m.game.tileSize)
-				m.game.player.sprites[list].position.y = (m.game.player.y * m.game.tileSize)
+				m.game.player.sprites[list].position.y = (m.game.player.y * m.game.tileSize) + m.game.player.yOffset
 			}
 		}
 
 		m.game.player.sprites[m.game.player.direction].alpha = 1
-
 	}
 
 	m.checkCollison = function (x, y) {
+		for (var i in m.game.mapRaw.layers) {
+			var layer = m.game.mapRaw.layers[i],
+				layerData = layer.data || layer.objects,
+				layerProperties = layer.properties || {},
+				pos = x + (y * m.game.mapRaw.width)
+			if (layerData && layerProperties.collide && layerData[pos] > 0) return true
+		}
+
 		//True means it will collide, and is therfore an illegal move
 		return false
 	}
@@ -472,29 +526,31 @@ angular.module('YtGL', [])
 			return
 		}
 
-		if (m.getKey("LEFT") || m.getKey("A") ) {
-			pos.x--
-			if (m.game.cameraLockedToPlayer) m.game.player.direction = 'left'
-		}
-		
-		else if (m.getKey("RIGHT") || m.getKey("D") ) {
-			pos.x++
-			if (m.game.cameraLockedToPlayer) m.game.player.direction = 'right'
-		}
-		
-		else if (m.getKey("UP") || m.getKey("W") ) {
-			pos.y--
-			if (m.game.cameraLockedToPlayer) m.game.player.direction = 'up'
-		}
-		
-		else if (m.getKey("DOWN") || m.getKey("S") ) {
-			pos.y++
-			if (m.game.cameraLockedToPlayer) m.game.player.direction = 'down'
-		}
+		if (m.game.cameraLockedToPlayer) {
+			if (m.getKey("LEFT") || m.getKey("A") ) {
+				pos.x--
+				m.game.player.direction = 'left'
+			}
+			
+			else if (m.getKey("RIGHT") || m.getKey("D") ) {
+				pos.x++
+				m.game.player.direction = 'right'
+			}
+			
+			else if (m.getKey("UP") || m.getKey("W") ) {
+				pos.y--
+				m.game.player.direction = 'up'
+			}
+			
+			else if (m.getKey("DOWN") || m.getKey("S") ) {
+				pos.y++
+				m.game.player.direction = 'down'
+			}
 
-		if (!m.checkCollison(pos) && pos.x > 0 && pos.y > 0 && pos.x < m.game.mapRaw.width && pos.y < m.game.mapRaw.height) {
-			m.game.player._X = pos.x
-			m.game.player._Y = pos.y
+			if (!m.checkCollison(pos.x, pos.y) && pos.x >= 0 && pos.y >= 0 && pos.x < m.game.mapRaw.width && pos.y < m.game.mapRaw.height) {
+				m.game.player._X = pos.x
+				m.game.player._Y = pos.y
+			}
 		}
 	}
 

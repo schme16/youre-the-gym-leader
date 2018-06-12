@@ -135,6 +135,6 @@
 	"format": "BGRA8888",
 	"size": {"w":128,"h":256},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:06431c073e8d3ee6316e6a79dce3599b:a61fef188b1673c7542406e9dc0482da:9323e6240c7a06a1a4a00b5774207a91$"
+	"smartupdate": "$TexturePacker:SmartUpdate:d1a0b56c4e36e57282139a8a575272ac:a61fef188b1673c7542406e9dc0482da:9323e6240c7a06a1a4a00b5774207a91$"
 }
 }
