@@ -29,7 +29,7 @@ body {
 
 
 
-.page > div {
+.page > div:not(div+div) {
     transition: 350ms opacity ease-in-out;
     opacity: 1;
 }
@@ -46,10 +46,26 @@ body {
     border: 1px solid #eeee;
     border-radius: 10px;
     overflow: hidden;
+    position: relative;
 }
 
 .page-loading {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.blackScreen {
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background-color: rgb(27, 27, 27);
+	transition: opacity 200ms ease-in-out;
+}
+
+.blackScreen.active {
+	opacity: 1;
 }

@@ -12,14 +12,17 @@ PIXI.Sprite.prototype.bringToFront = bringToFront
 PIXI.Graphics.prototype.bringToFront = bringToFront
 
 function degToRad (angle) {
+
  	return angle * (Math.PI / 180);
 }
 
 function radToDeg (angle) {
+
 	return angle * (180 / Math.PI);
 }
 
 function lerp(v0, v1, t) {
+
     return v0*(1-t)+v1*t
 }
 
@@ -47,19 +50,30 @@ angular.module('YtGL', [])
 		['pokemon-overworld-493', 'pokemon-overworld-493.json'],
 		['trainers-battles', 'trainers-battles.json'],
 		['pkmnTilesX2', 'pkmnTilesX2.json'],
-		['players-overworld', 'players-overworld.json']
-		//['trainers-overworld', 'trainers-overworld.json'] //This is an old version, and not useful... but still...
+		['players-overworld', 'players-overworld.json'],
+
 	]
 
-	m.game = {
-		width: 640,
-		height: 480,
-		tileSize: 32,
-		x: 0,
-		y: 0,
-		introSpeed: 8,
-		speed: 3,
-		gameSpeed: 3,
+	m.dom = {
+		blackScreen: $('.blackScreen')
+	}
+
+	m.defaults = {
+		game: {
+			width: 640,
+			height: 480,
+			tileSize: 32,
+			x: 0,
+			y: 0,
+			introSpeed: 8,
+			speed: 3,
+			gameSpeed: 3,
+			blackScreenFadeTime: 200,
+			tail: 0.1,
+			cameraLockedToPlayer: false,
+			intro: true,
+			possibleDirections: [ 'down', 'left', 'right', 'up']
+		},
 		player: {
 			x: 0,
 			y: 0,
@@ -68,11 +82,11 @@ angular.module('YtGL', [])
 			sprites: {},
 			direction: 'right',
 			yOffset: -10
-		},
-		tail: 0.1,
-		cameraLockedToPlayer: false,
-		intro: true
+		}
 	}
+
+
+	m.player
 
 	m.noop = function noop () {/*Performs no action- good for compilers though...*/}
 
@@ -146,6 +160,11 @@ angular.module('YtGL', [])
 		})
 	}
 
+	m.jsonClone = function (obj) {
+
+		return JSON.parse(JSON.stringify(obj))
+	}
+
 	m.getKey = function (key) {
 
 		return m.keys[m.key[key]]
@@ -213,7 +232,7 @@ angular.module('YtGL', [])
 
 	m.init = function () {
 
-		m.renderer = new PIXI.autoDetectRenderer(m.game.width, m.game.height)
+		m.renderer = new PIXI.autoDetectRenderer(m.defaults.game.width, m.defaults.game.height)
 		m.renderer.backgroundColor = 0x061639;
 
 
@@ -267,12 +286,33 @@ angular.module('YtGL', [])
 		return Math.round((n * tileSize) / tileSize)  * tileSize
 	}
 
+	//Loads the map from url, and builds the map
 	m.loadMap = function (filename, callback) {
-		m.game.speed = m.game.introSpeed
+		var playerTempContainer
+		if (!m.game) {
+			m.game = m.jsonClone(m.defaults.game)
+			m.game.player = m.jsonClone(m.defaults.player)
+			console.log(1)
+		}
+		else {
+			console.log(2)
+			var player = m.game.player
+			m.game = m.jsonClone(m.defaults.game)
+			m.game.player = player
+			playerTempContainer = new PIXI.Container()
+			for (var i in m.game.player.sprites) {
+				playerTempContainer.addChild(m.game.player.sprites[i])
+			}
+		}
+
+		m.game.speed = m.game.introSpeed 
 		m.game.cameraLockedToPlayer = false
 
+		console.log(m.game.player.sprites, 1111)
 
 		$.getJSON('sys/maps/' + filename + '.json').success(function(data) {
+			console.log(m.game)
+			m.stages.main = new PIXI.Container()
 			m.game.playing = true
 			m.game.mapRaw = data
 			m.game.map = {
@@ -308,58 +348,66 @@ angular.module('YtGL', [])
 
 						//Add the player
 						if (o.properties && o.properties.isPlayer) {
-							m.game.player._X = m.toTile(o.x)
-							m.game.player._Y = m.toTile(o.y) - 1
 
-							var playerTileset = [
-								'HGSS_220_walk_0.png',
-								'HGSS_220_walk_1.png',
-								'HGSS_220_walk_2.png',
-								'HGSS_220_walk_3.png',
-								'HGSS_220_walk_4.png',
-								'HGSS_220_walk_5.png',
-								'HGSS_220_walk_6.png',
-								'HGSS_220_walk_7.png',
-								'HGSS_220_walk_8.png',
-								'HGSS_220_walk_9.png',
-								'HGSS_220_walk_10.png',
-								'HGSS_220_walk_11.png',
-								'HGSS_220_walk_12.png',
-								'HGSS_220_walk_13.png',
-								'HGSS_220_walk_14.png',
-								'HGSS_220_walk_15.png'
-							]
+							//Freshly loaded game
+							if (!m.game.player.sprites[m.game.possibleDirections[0]]) {
+								m.game.player._X = m.toTile(o.x)
+								m.game.player._Y = m.toTile(o.y) - 1
 
-							for (var i = 0; i < 4; i++) {
-								var t = [],
-									name = ''
+								var playerTileset = [
+									'HGSS_220_walk_0.png',
+									'HGSS_220_walk_1.png',
+									'HGSS_220_walk_2.png',
+									'HGSS_220_walk_3.png',
+									'HGSS_220_walk_4.png',
+									'HGSS_220_walk_5.png',
+									'HGSS_220_walk_6.png',
+									'HGSS_220_walk_7.png',
+									'HGSS_220_walk_8.png',
+									'HGSS_220_walk_9.png',
+									'HGSS_220_walk_10.png',
+									'HGSS_220_walk_11.png',
+									'HGSS_220_walk_12.png',
+									'HGSS_220_walk_13.png',
+									'HGSS_220_walk_14.png',
+									'HGSS_220_walk_15.png'
+								]
 
-								if (i == 0) {
-									name = 'down'
+								for (var i in m.game.possibleDirections) {
+									var t = [],
+										name = m.game.possibleDirections[i]
+
+									t.push(playerTileset[i * 4])
+									t.push(playerTileset[i * 4 + 1])
+									t.push(playerTileset[i * 4 + 2])
+									t.push(playerTileset[i * 4 + 3])
+
+									m.game.player.sprites[name] = m.createAnimatedClip(t)
+									m.game.player.sprites[name].position.x = (m.game.player._X * m.game.tileSize)
+									m.game.player.sprites[name].position.y = (m.game.player._Y * m.game.tileSize) + m.game.player.yOffset
+
+
+
+									m.stages.main.addChild(m.game.player.sprites[name])
+									if (name != m.game.player.direction) m.game.player.sprites[name].alpha = 0
 								}
-								else if (i == 1) {
-									name = 'left'
+							}
+
+							//Loading new map
+							else if (playerTempContainer) {
+								for (var i in m.game.player.sprites) {
+									m.stages.main.addChild(m.game.player.sprites[i])
+									m.game.player._X = m.toTile(o.x)
+									m.game.player._Y = m.toTile(o.y) - 1
+									for (var i in m.game.possibleDirections) {
+										var t = [],
+											name = m.game.possibleDirections[i]
+
+										m.game.player.sprites[name].position.x = (m.game.player._X * m.game.tileSize)
+										m.game.player.sprites[name].position.y = (m.game.player._Y * m.game.tileSize) + m.game.player.yOffset
+									}
 								}
-								else if (i == 2) {
-									name = 'right'
-								}
-								else if (i == 3) {
-									name = 'up'
-								}
 
-								t.push(playerTileset[i * 4])
-								t.push(playerTileset[i * 4 + 1])
-								t.push(playerTileset[i * 4 + 2])
-								t.push(playerTileset[i * 4 + 3])
-
-								m.game.player.sprites[name] = m.createAnimatedClip(t)
-								m.game.player.sprites[name].position.x = (m.game.player._X * m.game.tileSize)
-								m.game.player.sprites[name].position.y = (m.game.player._Y * m.game.tileSize) + m.game.player.yOffset
-
-
-
-								m.stages.main.addChild(m.game.player.sprites[name])
-								if (name != m.game.player.direction) m.game.player.sprites[name].alpha = 0
 							}
 						}
 
@@ -367,7 +415,7 @@ angular.module('YtGL', [])
 						else {
 							var sprite = new PIXI.Sprite (m.res.pkmnTilesX2.textures['tiles_' + (o.gid - 1) + '.png'])
 							sprite.position.x = m.fromTile(m.toTile(o.x))
-							sprite.position.y = m.fromTile(m.toTile(o.y)) - m.game.tileSize
+							sprite.position.y = m.fromTile(m.toTile(o.y) - 1) - m.game.tileSize
 							m.game.map.objects.addChild(sprite)
 						}
 					}
@@ -381,6 +429,34 @@ angular.module('YtGL', [])
 		})
 	}
 
+	//Handles the fade & switch
+	m.switchMap = function (newMap, obj, callback) {
+		if (!m.mapSwitching) {
+			setTimeout(function () {
+				m.mapSwitching = true
+				m.$applyAsync()
+				var _t = new Date().getTime()
+				m.loadMap(newMap, function () {
+					var newTimeout = new Date().getTime() - _t < m.game.blackScreenFadeTime ? m.game.blackScreenFadeTime : 16
+					setTimeout(function () {
+
+						console.log(m.lastDoor)
+
+						m.game.player.x = m.game.player._X
+						m.game.player.y = m.game.player._Y
+						m.stages.main.position.x = -((m.game.player.x * m.game.tileSize)) + m.defaults.game.width / 2
+						m.stages.main.position.y = -((m.game.player.y * m.game.tileSize)) + m.defaults.game.height / 2
+
+						m.lastDoor = obj
+						m.mapSwitching = false
+						m.$applyAsync()
+						if (callback) callback()
+					}, m.game.blackScreenFadeTime)
+				})
+			}, m.game.blackScreenFadeTime)
+		}
+	}
+
 	m.loop = function () {
 		var ms = new Date().getTime()
 
@@ -391,8 +467,13 @@ angular.module('YtGL', [])
 		m._ts = ms
 
 
-		if (m.game.playing) {
+		if (m.game && m.game.playing) {
 
+			//Do stuff to the stages
+			for (var i in m.stages) {
+				var s = m.stages[i]
+
+			}
 
 			m.movePlayer()
 			
@@ -410,24 +491,11 @@ angular.module('YtGL', [])
 
 	m.moveCamera = function () {
 
+		if (!m.game || !m.game.player || !m.game.player.sprites || !m.game.player.sprites[m.game.possibleDirections[0]]) return false
 
 		var distX = m.game.player.x - m.game.player._X,
 			distY = m.game.player.y - m.game.player._Y,
 			animate = false
-
-
-		//Get the player sprite data ready
-		for(var i in ['left', 'right', 'up', 'down']) {
-			var list = ['left', 'right', 'up', 'down'][i]
-			//m.game.player.sprites[list].stop()
-			//m.game.player.sprites[list].loop = true
-			//m.game.player.sprites[list].onLoop = function () {
-				//console.log(m.game.player.sprites[list])
-				//this.gotoAndStop(0)
-			//}
-
-			m.game.player.sprites[list].animationSpeed = (m.game.speed * m.game.player.animationSpeed) * m.dt
-		}
 
 		if (distX < 0 && Math.abs(distX) > m.game.tail) {
 			m.game.player.x += (m.dt * m.game.speed)
@@ -475,8 +543,8 @@ angular.module('YtGL', [])
 
 
 		//move the camera to the correct position
-		m.stages.main.position.x = -((m.game.player.x * m.game.tileSize)) + m.game.width / 2
-		m.stages.main.position.y = -((m.game.player.y * m.game.tileSize)) + m.game.height / 2
+		m.stages.main.position.x = -((m.game.player.x * m.game.tileSize)) + m.defaults.game.width / 2
+		m.stages.main.position.y = -((m.game.player.y * m.game.tileSize)) + m.defaults.game.height / 2
 
 		if (Math.abs(distX || distY) == 0) {
 			m.game.cameraLockedToPlayer = true
@@ -485,8 +553,8 @@ angular.module('YtGL', [])
 
 
 		//Get the player sprite data ready
-		for(var i in ['left', 'right', 'up', 'down']) {
-			var list = ['left', 'right', 'up', 'down'][i]
+		for(var i in m.game.possibleDirections) {
+			var list = m.game.possibleDirections[i]
 			m.game.player.sprites[list].alpha = 0
 			if (m.game.cameraLockedToPlayer) {
 				if (!m.game.player.sprites[list].playing) {

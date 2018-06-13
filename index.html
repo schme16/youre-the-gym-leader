@@ -68,6 +68,7 @@
 	<div class="page page-{{$root.page || 'loading'}}"  ng-class="{'fade-out': $root.pageChanging}">
 		<div ng-show="$root.page != 'game'" ng-include="'sys/pages/' + ($root.page || 'loading') + '.html'"></div>
 		<div class="game" ng-show="$root.page == 'game'"></div>
+		<div class="blackScreen" ng-class="{'active': mapSwitching || !game || !game.player || !game.player.sprites || !game.player.sprites[game.possibleDirections[0]]}"></div>
 	</div>
 
 
