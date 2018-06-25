@@ -19,7 +19,6 @@
     "bootstrap": "latest",
     "font-awesome": "latest",
     "pepjs": "latest",
-    "open-sans": "latest",
-    "pixi": "^4.8.1"
+    "open-sans": "latest"
   }
 }
