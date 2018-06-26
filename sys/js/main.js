@@ -51,11 +51,11 @@ angular.module('YtGL', [])
 		['trainers-battles', 'trainers-battles.json'],
 		['pkmnTilesX2', 'pkmnTilesX2.json'],
 		['players-overworld', 'players-overworld.json'],
-
 	]
 
 	m.dom = {
-		blackScreen: $('.blackScreen')
+		blackScreen: $('.blackScreen'),
+		whiteScreen: $('.whiteScreen')
 	}
 
 	m.defaults = {
@@ -85,8 +85,9 @@ angular.module('YtGL', [])
 		}
 	}
 
-
-	m.player
+	m.lastDoors = {}
+	
+	m.mapCache = {}
 
 	m.noop = function noop () {/*Performs no action- good for compilers though...*/}
 
@@ -232,7 +233,12 @@ angular.module('YtGL', [])
 
 	m.init = function () {
 
-		m.renderer = new PIXI.autoDetectRenderer(m.defaults.game.width, m.defaults.game.height)
+		m.renderer = new PIXI.autoDetectRenderer({
+			width: m.defaults.game.width,
+			height: m.defaults.game.height,
+			antialias: false,
+			powerPreference: 'high-performance'
+		})
 		m.renderer.backgroundColor = 0x061639;
 
 
@@ -278,12 +284,12 @@ angular.module('YtGL', [])
 
 	m.toTile = function (n, tileSize) {
 		tileSize = tileSize || m.game.tileSize
-		return Math.round(n / tileSize)
+		return Math.floor(n / tileSize)
 	}
 
 	m.fromTile = function (n, tileSize) {
 		tileSize = tileSize || m.game.tileSize
-		return Math.round((n * tileSize) / tileSize)  * tileSize
+		return Math.floor((n * tileSize) / tileSize)  * tileSize
 	}
 
 	//Loads the map from url, and builds the map
@@ -292,10 +298,8 @@ angular.module('YtGL', [])
 		if (!m.game) {
 			m.game = m.jsonClone(m.defaults.game)
 			m.game.player = m.jsonClone(m.defaults.player)
-			console.log(1)
 		}
 		else {
-			console.log(2)
 			var player = m.game.player
 			m.game = m.jsonClone(m.defaults.game)
 			m.game.player = player
@@ -308,17 +312,18 @@ angular.module('YtGL', [])
 		m.game.speed = m.game.introSpeed 
 		m.game.cameraLockedToPlayer = false
 
-		console.log(m.game.player.sprites, 1111)
-
-		$.getJSON('sys/maps/' + filename + '.json').success(function(data) {
-			console.log(m.game)
+		var nextStep = function (data) {
+			m.mapCache[filename] = data
 			m.stages.main = new PIXI.Container()
 			m.game.playing = true
 			m.game.mapRaw = data
 			m.game.map = {
+				name: filename,
 				layers: {},
 				objects: new PIXI.Container()
 			}
+
+			m.game.tileSize = data.tilewidth
 
 
 
@@ -330,7 +335,7 @@ angular.module('YtGL', [])
 						var sprite = new PIXI.Sprite (m.res.pkmnTilesX2.textures['tiles_' + (data.layers[layer].data[x] - 1) + '.png'])
 						sprite.position.x = (x % data.layers[layer].width) * m.game.tileSize
 						sprite.position.y = (Math.floor(x / data.layers[layer].width)).toFixed(0) * m.game.tileSize
-						//if (layer == 0 && x < 150) console.log(x, Math.floor(x / data.layers[layer].width))
+						sprite.visible = false
 						md.addChild(sprite)
 					}
 
@@ -348,7 +353,12 @@ angular.module('YtGL', [])
 
 						//Add the player
 						if (o.properties && o.properties.isPlayer) {
-
+							
+							m.game.player.properties = o.properties
+								m.game.map.playerStart = {
+									x: m.toTile(o.x),
+									y: m.toTile(o.y) - 1
+								}
 							//Freshly loaded game
 							if (!m.game.player.sprites[m.game.possibleDirections[0]]) {
 								m.game.player._X = m.toTile(o.x)
@@ -397,8 +407,7 @@ angular.module('YtGL', [])
 							else if (playerTempContainer) {
 								for (var i in m.game.player.sprites) {
 									m.stages.main.addChild(m.game.player.sprites[i])
-									m.game.player._X = m.toTile(o.x)
-									m.game.player._Y = m.toTile(o.y) - 1
+									
 									for (var i in m.game.possibleDirections) {
 										var t = [],
 											name = m.game.possibleDirections[i]
@@ -408,14 +417,17 @@ angular.module('YtGL', [])
 									}
 								}
 
+								m.game.player.properties = o.properties
 							}
 						}
 
 						//Other objects
 						else {
 							var sprite = new PIXI.Sprite (m.res.pkmnTilesX2.textures['tiles_' + (o.gid - 1) + '.png'])
-							sprite.position.x = m.fromTile(m.toTile(o.x))
-							sprite.position.y = m.fromTile(m.toTile(o.y) - 1) - m.game.tileSize
+							sprite.properties = o.properties
+							if (sprite.properties && sprite.properties.doorway) sprite.alpha = 0
+							sprite.position.x = m.fromTile(m.toTile(o.x) + 2)
+							sprite.position.y = m.fromTile(m.toTile(o.y) - 3)
 							m.game.map.objects.addChild(sprite)
 						}
 					}
@@ -425,37 +437,55 @@ angular.module('YtGL', [])
 			m.stages.main.addChild(m.game.map.objects)
 
 			if (callback) callback()
+		}
 
-		})
+		if (m.mapCache[filename]) nextStep(m.mapCache[filename])
+		else $.getJSON('sys/maps/' + filename + '.json').success(nextStep)
 	}
 
 	//Handles the fade & switch
-	m.switchMap = function (newMap, obj, callback) {
-		if (!m.mapSwitching) {
-			setTimeout(function () {
-				m.mapSwitching = true
-				m.$applyAsync()
-				var _t = new Date().getTime()
-				m.loadMap(newMap, function () {
-					var newTimeout = new Date().getTime() - _t < m.game.blackScreenFadeTime ? m.game.blackScreenFadeTime : 16
+	m.switchMap = function (newMap, obj, ignoreLastDoor, callback) {
+		m.mapSwitching = true
+		m.lastDoors[m.game.map.name] = obj
+		m.$applyAsync()
+
+
+		var _t = new Date().getTime()
+		m.loadMap(newMap, function () {
+			var newTimeout = new Date().getTime() - _t < m.game.blackScreenFadeTime ? m.game.blackScreenFadeTime : 16
+			var newDir
+			if (!ignoreLastDoor && m.lastDoors[newMap]) {
+				if (m.lastDoors[newMap].properties && m.lastDoors[newMap].properties.direction) {
+					newDir = m.lastDoors[newMap].properties.direction
+					m.game.player.direction = m.lastDoors[newMap].properties.direction
+				}
+				m.game.player._X = (m.lastDoors[newMap].x / m.game.tileSize)
+				m.game.player._Y = (m.lastDoors[newMap].y / m.game.tileSize)
+			}
+
+			m.game.player.x = m.game.player._X
+			m.game.player.y = m.game.player._Y
+
+			if (newDir) {
+				if (newDir == 'down') {
 					setTimeout(function () {
-
-						console.log(m.lastDoor)
-
-						m.game.player.x = m.game.player._X
-						m.game.player.y = m.game.player._Y
-						m.stages.main.position.x = -((m.game.player.x * m.game.tileSize)) + m.defaults.game.width / 2
-						m.stages.main.position.y = -((m.game.player.y * m.game.tileSize)) + m.defaults.game.height / 2
-
-						m.lastDoor = obj
+						m.game.player._Y++
 						m.mapSwitching = false
 						m.$applyAsync()
-						if (callback) callback()
-					}, m.game.blackScreenFadeTime)
-				})
-			}, m.game.blackScreenFadeTime)
-		}
+					}, m.game.blackScreenFadeTime + 100)
+				}
+			}
+			else {
+				m.stages.main.position.x = -((m.game.player.x * m.game.tileSize)) + m.defaults.game.width / 2
+				m.stages.main.position.y = -((m.game.player.y * m.game.tileSize)) + m.defaults.game.height / 2
+				m.mapSwitching = false
+			}
+			m.$applyAsync()
+			if (callback) callback()
+		})
 	}
+	
+	m.count = 9999
 
 	m.loop = function () {
 		var ms = new Date().getTime()
@@ -468,17 +498,28 @@ angular.module('YtGL', [])
 
 
 		if (m.game && m.game.playing) {
-
+			//if (m.game.player) console.log(m.game.player._Y)
 			//Do stuff to the stages
-			for (var i in m.stages) {
-				var s = m.stages[i]
+			// for (var i in m.stages) {
+			// 	var s = m.stages[i]
 
-			}
+			// }
 
 			m.movePlayer()
 			
 			m.moveCamera()
+			m.getObject()
 
+			var distX = m.game.player.x - m.game.player._X,
+				distY = m.game.player.y - m.game.player._Y
+			if (m.count > 8 && (Math.abs(distX) > m.game.tail || Math.abs(distY) > m.game.tail)) {
+				m.revealMap()
+				m.count = 0
+				m.dirty = false
+			}
+			else {
+				m.count++
+			}
 			m.renderer.render(m.stages.main)
 		}
 		requestAnimationFrame(m.loop)
@@ -581,6 +622,66 @@ angular.module('YtGL', [])
 		return false
 	}
 
+	// m.offset = 0
+	// m.offset2 = 0
+	// setInterval(function () {
+	// 	m.offset++
+	// 	m.offset2++
+	// 	if (m.offset > 100) m.offset = 0
+	// 	if (m.offset2 > 80) m.offset2 = 0
+	// }, 10)
+	m.revealMap = function (x, y) {
+
+		var viewportWidth = m.toTile(m.game.width),
+			viewportHeight = m.toTile(m.game.height),
+			viewportHeightHalf = m.toTile(m.game.width/2),
+			viewportWidthHalf = m.toTile(m.game.width/2),
+			X = m.toTile(m.fromTile(m.game.player.x)),
+			Y = m.toTile(m.fromTile(m.game.player.y)),
+			toY = Y + (viewportHeightHalf + 10),
+			fromY =  Y - (viewportHeightHalf + 10),
+			toX = X + (viewportWidthHalf + 10),
+			fromX =  X - (viewportWidthHalf + 10),
+			tileX,
+			tileY,
+			testX,
+			textY,
+			layer,
+			layerData,
+			i,
+			l
+			
+
+		for (l in m.game.map.layers) {
+			
+			layer = m.game.map.layers[l],
+			layerData = layer.data || layer.objects || layer.children
+				
+			for (i = 0; i < layerData.length; i++) {
+				tileX = m.toTile(layerData[i].x),
+				tileY = m.toTile(layerData[i].y)
+
+
+				testX = tileX > fromX && tileX < toX,
+				testY = tileY > fromY && tileY < toY
+
+				if (layerData[i]) {
+
+					
+					if ( testX && testY) {
+						layerData[i].visible = true
+						//layerData[i].alpha = 1
+					}
+					else {
+						layerData[i].visible = false
+						//layerData[i].alpha = 0
+					}
+				}
+			}
+		}
+
+	}
+
 	m.movePlayer = function () {
 		var pos = {
 				x: m.game.player._X,
@@ -618,6 +719,22 @@ angular.module('YtGL', [])
 			if (!m.checkCollison(pos.x, pos.y) && pos.x >= 0 && pos.y >= 0 && pos.x < m.game.mapRaw.width && pos.y < m.game.mapRaw.height) {
 				m.game.player._X = pos.x
 				m.game.player._Y = pos.y
+			}
+		}
+	}
+
+	m.getObject = function () {
+		if (!m.game.cameraLockedToPlayer || m.mapSwitching) return false
+		for (var i in m.game.map.objects.children) {
+			var obj = m.game.map.objects.children[i]
+			if (obj.properties && obj.properties.doorway && (m.toTile(obj.x)) == m.game.player._X && (m.toTile(obj.y)) == m.game.player._Y ) {
+				var doorway = obj.properties.doorway
+				
+				m.mapSwitching = true
+				m.$applyAsync()
+				setTimeout(function () {
+					m.switchMap(doorway, obj, false, function () {})
+				}, m.game.blackScreenFadeTime)
 			}
 		}
 	}

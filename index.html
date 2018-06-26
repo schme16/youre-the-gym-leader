@@ -42,10 +42,10 @@
 
 
 	<!--Stylesheets-->
-		<link rel="stylesheet" type="text/css" href="bower_components/open-sans/css/open-sans.min.css" >
-		<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css" >
-		<link rel="stylesheet" type="text/css" href="bower_components/font-awesome/web-fonts-with-css/css/fontawesome-all.css" >
-		<link rel="stylesheet" type="text/css" href="sys/css/spinner.css" >
+<!-- 		<link rel="stylesheet" type="text/css" href="bower_components/open-sans/css/open-sans.min.css" >
+ --><!-- 		<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css" >
+ --><!-- 		<link rel="stylesheet" type="text/css" href="bower_components/font-awesome/web-fonts-with-css/css/fontawesome-all.css" >
+ -->		<link rel="stylesheet" type="text/css" href="sys/css/spinner.css" >
 		<link rel="stylesheet" type="text/css" href="sys/css/styles.css">
 
 
@@ -69,6 +69,7 @@
 		<div ng-show="$root.page != 'game'" ng-include="'sys/pages/' + ($root.page || 'loading') + '.html'"></div>
 		<div class="game" ng-show="$root.page == 'game'"></div>
 		<div class="blackScreen" ng-class="{'active': mapSwitching || !game || !game.player || !game.player.sprites || !game.player.sprites[game.possibleDirections[0]]}"></div>
+		<div class="whiteScreen" ng-class="{'active': 0}"></div>
 	</div>
 
 
