@@ -1,0 +1,27 @@
+{
+  "name": "youre-the-gym-leader",
+  "version": "1.0.0",
+  "description": "Play as a pokemon gym leader",
+  "main": "index.js",
+  "dependencies": {
+    "cache-control": "^2.0.0",
+    "compression": "^1.7.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "mongodb": "^2.2.35",
+    "mongodb-uri": "^0.9.7",
+    "socket.io": "^2.1.1"
+  },
+  "engines": {
+    "node": "7.4.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/schme16/youre-the-gym-leader.git"
+  },
+  "keywords": [
+    "node",
+    "express"
+  ],
+  "license": "MIT"
+}
